@@ -13,7 +13,7 @@ __author__ = 'juliowaissman'
 import entornos
 from random import choice
 
-
+ 
 class DosCuartos(entornos.Entorno):
     """
     Clase para un entorno de dos cuartos. Muy sencilla solo regrupa métodos.
