@@ -8,10 +8,11 @@ Ejemplo de un entorno muy simple y agentes idem
 
 """
 
-__author__ = 'juliowaissman'
-
 import entornos
 from random import choice
+
+
+__author__ = 'juliowaissman'
 
  
 class DosCuartos(entornos.Entorno):
@@ -37,24 +38,24 @@ class DosCuartos(entornos.Entorno):
         if not self.accion_legal(estado, accion):
             raise ValueError("La accion no es legal para este estado")
 
-        robot, A, B = estado
+        robot, a, b = estado
 
-        return (('A', A, B) if accion == 'irA' else
-                ('B', A, B) if accion == 'irB' else
-                (robot, A, B) if accion == 'noOp' else
-                ('A', 'limpio', B) if accion == 'limpiar' and robot == 'A' else
-                ('B', A, 'limpio'))
+        return (('A', a, b) if accion == 'irA' else
+                ('B', a, b) if accion == 'irB' else
+                (robot, a, b) if accion == 'noOp' else
+                ('A', 'limpio', b) if accion == 'limpiar' and robot == 'A' else
+                ('B', a, 'limpio'))
 
     def sensores(self, estado):
-        robot, A, B = estado
-        return robot, A if robot == 'A' else B
+        robot, a, b = estado
+        return robot, a if robot == 'A' else b
 
     def accion_legal(self, estado, accion):
         return accion in ('irA', 'irB', 'limpiar', 'noOp')
 
     def desempeno_local(self, estado, accion):
-        robot, A, B = estado
-        return 0 if accion == 'noOp' and A == B == 'limpio' else -1
+        robot, a, b = estado
+        return 0 if accion == 'noOp' and a == b == 'limpio' else -1
 
 
 class AgenteAleatorio(entornos.Agente):
@@ -93,18 +94,17 @@ class AgenteReactivoModeloDosCuartos(entornos.Agente):
 
         """
         self.modelo = ['A', 'sucio', 'sucio']
-        self.lugar = {'A': 1, 'B': 2}
 
     def programa(self, percepcion):
         robot, situacion = percepcion
 
         # Actualiza el modelo interno
         self.modelo[0] = robot
-        self.modelo[self.lugar[robot]] = situacion
+        self.modelo[' AB'.index(robot)] = situacion
 
         # Decide sobre el modelo interno
-        A, B = self.modelo[1], self.modelo[2]
-        return ('noOp' if A == B == 'limpio' else
+        a, b = self.modelo[1], self.modelo[2]
+        return ('noOp' if a == b == 'limpio' else
                 'limpiar' if situacion == 'sucio' else
                 'irA' if robot == 'B' else
                 'irB')
