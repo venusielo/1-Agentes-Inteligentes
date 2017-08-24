@@ -9,9 +9,11 @@ entornos.py
 
 __author__ = 'juliowaissman'
 
-class Entorno(object):
+class Entorno:
     """
     Clase abstracta para entornos
+
+    En realidad funciona como un contenedor de funciones
 
     """
 
