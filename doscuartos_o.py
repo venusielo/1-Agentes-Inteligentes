@@ -129,8 +129,3 @@ def test():
 
 if __name__ == "__main__":
     test()
-    e = DosCuartos()
-    e.transición('ir_B')
-    print(e.x)
-    e = DosCuartos()
-    print(e.x)
