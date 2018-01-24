@@ -10,7 +10,7 @@ estudiarán en el curso como el desarrollo de programas de agentes racionales, y
 en forma superficial el desarrollo de agentes *reactivos* y *reactivos basados en modelo*, así
 como las peculiaridades de diferentes tipos de entornos. 
 
-Igualmente, esta tarea es un primer acercaiento a `python` y a la forma en la que vamos a
+Igualmente, esta tarea es un primer acercamiento a `python` y a la forma en la que vamos a
 trabajar el resto del curso. Es por esta razón que la mayoría del código ya viene programado.
 
 
