@@ -1,7 +1,7 @@
 ![](ia.png)
 # Tarea 1
 ## Desarrollo de entornos y agentes
-**Julio Waissman Vilanova**, 24 de enero de 2018
+**Julio Waissman Vilanova**, 27 de agosto de 2018
 
 ### Objetivo de la tarea
 
@@ -71,5 +71,5 @@ En esta tarea realiza las siguiente acciones:
 Todos los incisos tienen un valor de 25 puntos sobre la calificación de
 la tarea.
 
-La fecha límite para entrega de la tarea es el **lunes 5 de febrero de 2018**.
+La fecha límite para entrega de la tarea es el **lunes 3 de septiembre de 2018**.
 
