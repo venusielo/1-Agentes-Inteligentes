@@ -72,5 +72,3 @@ En esta tarea realiza las siguiente acciones:
 Todos los incisos tienen un valor de 25 puntos sobre la calificación de
 la tarea.
 
-La fecha límite para entrega de la tarea es el **lunes 3 de septiembre de 2018**.
-
