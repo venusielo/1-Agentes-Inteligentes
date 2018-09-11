@@ -1,7 +1,8 @@
 ![](ia.png)
-# Tarea 1
+# Desarrollo de entornos y agentes
+**Evaluación de competencias 1**
+
 ## Desarrollo de entornos y agentes
-**Julio Waissman Vilanova**, 27 de agosto de 2018
 
 ### Objetivo de la tarea
 
