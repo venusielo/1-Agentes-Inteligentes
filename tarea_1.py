@@ -8,7 +8,7 @@ Tarea de desarrollo de entornos y agentes
 ==========================================
 
 1. Desarrolla un entorno similar al de los dos cuartos (el cual se
-   encuentra en el módulo doscuartos_o.py), pero con tres cuartos en
+   encuentra en el módulo doscuartos_f.py), pero con tres cuartos en
    el primer piso, y tres cuartos en el segundo piso.
    
    El entorno se llamará `SeisCuartos`.
@@ -59,8 +59,8 @@ la tarea.
 """
 __author__ = 'escribe_tu_nombre'
 
-import entorno_o
+import entornos_f
 
-# Requiere el modulo entornos_o.py
-# Usa el modulo doscuartos_o.py para reutilizar código
+# Requiere el modulo entornos_f.py
+# Usa el modulo doscuartos_f.py para reutilizar código
 # Agrega los modulos que requieras de python
