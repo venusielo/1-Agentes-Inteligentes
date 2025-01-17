@@ -19,7 +19,7 @@ class Entorno:
 
     """
 
-    def acción_legal(self, s, a):
+    def accion_legal(self, s, a):
         """
         @param s: Una tupla con un estado legal del entorno
         @param a: Una accion en el entorno
@@ -31,7 +31,7 @@ class Entorno:
         """
         return True
 
-    def transición(self, s, a):
+    def transicion(self, s, a):
         """
         @param s: Una tupla con un estado legal del entorno
         @param a: Una accion en el entorno
@@ -42,7 +42,7 @@ class Entorno:
         """
         pass
 
-    def percepción(self, s):
+    def percepcion(self, s):
         """
         @param s: Una tupla con un estado legal del entorno
         @return: Tupla con los valores que se perciben del entorno por
@@ -83,15 +83,15 @@ def simulador(entorno, agente, s, T=10, c=0):
              la acción, estado y costo total en cada paso de simulación.
 
     """
-    a = agente.programa(entorno.percepción(s))
-    if not entorno.acción_legal(a):
+    a = agente.programa(entorno.percepcion(s))
+    if not entorno.accion_legal(s, a):
         raise ValueError("Error en el agente, ofrece una acción no legal")
-    s_n, c_local = entorno.transición(s, a)
+    s_n, c_local = entorno.transicion(s, a)
 
     return ([] + [(a, s_n, c + c_local)] if T <= 1 else
             [(a, s_n, c + c_local)] + simulador(entorno, agente, s_n, T - 1, c + c_local))
     
-def imprime_simulación(historial, s_0):
+def imprime_simulacion(historial, s_0):
     """
     Imprime una secuencia generada por simulador
 

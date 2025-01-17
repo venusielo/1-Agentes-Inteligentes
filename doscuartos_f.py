@@ -34,21 +34,21 @@ class DosCuartos(entornos_f.Entorno):
     con la ubicación del robot y el estado de limpieza
 
     """
-    def acción_legal(self, acción):
-        return acción in ("ir_A", "ir_B", "limpiar", "nada")
+    def accion_legal(self, _, accion):
+        return accion in ("ir_A", "ir_B", "limpiar", "nada")
 
-    def transición(self, estado, acción):
+    def transicion(self, estado, acción):
         robot, a, b = estado
 
-        c_local = 0 if a == b == "limpio" and acción is "nada" else 1
+        c_local = 0 if a == b == "limpio" and acción == "nada" else 1
 
-        return ((estado, c_local) if a is "nada" else
-                (("A", a, b), c_local) if acción is "ir_A" else
-                (("B", a, b), c_local) if acción is "ir_B" else
-                ((robot, "limpio", b), c_local) if robot is "A" else
+        return ((estado, c_local) if a == "nada" else
+                (("A", a, b), c_local) if acción == "ir_A" else
+                (("B", a, b), c_local) if acción == "ir_B" else
+                ((robot, "limpio", b), c_local) if robot == "A" else
                 ((robot, a, "limpio"), c_local))
 
-    def percepción(self, estado):
+    def percepcion(self, estado):
         return estado[0], estado[" AB".find(estado[0])]
 
 
@@ -69,10 +69,11 @@ class AgenteReactivoDoscuartos(entornos_f.Agente):
     Un agente reactivo simple
 
     """
-    def programa(self, percepción):
-        robot, situación = percepción
-        return ('limpiar' if situación == 'sucio' else
-                'ir_A' if robot == 'B' else 'ir_B')
+    def programa(self, percepcion):
+        robot, situacion = percepcion
+        return ('limpiar' if situacion == 'sucio' else
+                'ir_A' if robot == 'B' else 
+                'ir_B')
 
 
 class AgenteReactivoModeloDosCuartos(entornos_f.Agente):
@@ -102,7 +103,7 @@ class AgenteReactivoModeloDosCuartos(entornos_f.Agente):
 
 
 def prueba_agente(agente):
-    entornos_f.imprime_simulación(
+    entornos_f.imprime_simulacion(
         entornos_f.simulador(
             DosCuartos(),
             agente,
